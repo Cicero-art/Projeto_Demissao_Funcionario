@@ -19,14 +19,14 @@ plt.title('Distribuição da Variável target "Left"')
 for p in grafico.patches:
     # Adicionar o rótulo de dados
     grafico.annotate(
-        f'{p.get_height():.1f}%',          # Texto do rótulo com uma casa decimal
-        (p.get_x() + p.get_width() / 2.,   # Posição x do texto
-         p.get_height()),                   # Posição y do texto
-        ha='center',                        # Alinhamento horizontal
-        va='center',                        # Alinhamento vertical
-        xytext=(0, -10),                     # Deslocamento do texto em relação à barra
-        textcoords='offset points',         # Tipo de coordenada para o deslocamento
-        fontsize=10                         # Tamanho da fonte
+        f'{p.get_height():.1f}%',
+        (p.get_x() + p.get_width() / 2.,
+         p.get_height()),
+        ha='center',
+        va='center',
+        xytext=(0, -10),
+        textcoords='offset points',
+        fontsize=10
     )
 
 plt.show()
