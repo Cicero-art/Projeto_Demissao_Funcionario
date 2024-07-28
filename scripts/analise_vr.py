@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Ler o arquivo do diretório
 df = pd.read_csv("C:/Users/cicero.neto/Projeto_Demissao_Funcionario/data/HR_comma_sep.csv")
-
+print(type(df))
 # Contar, normalizar e adicioncar um dataframe para visualização da distribuição
 contagem = df['left'].value_counts(normalize=True) * 100
 dist_df = contagem.reset_index()
