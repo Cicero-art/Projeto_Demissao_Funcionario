@@ -8,6 +8,5 @@ Conjunto de dados Human Resource Dataset, que contém uma variadade de atributos
 
 ## Estrutura do Projeto
 - `data/`: Arquivos de dados do projeto (.csv, .xlsx, .parquet, etc.)
-- `src/`: Códigos fonte em Python.
 - `scripts/`: Scripts adicionais em Python.
 - `reports/`: Figuras, tabelas e relatórios.
