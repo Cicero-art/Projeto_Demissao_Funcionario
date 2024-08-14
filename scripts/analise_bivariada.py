@@ -5,6 +5,36 @@ import seaborn as sns
 
 
 def analise_bivariada(dataset, target, figures_path, reports_path):
+    '''
+    Gera análises bivariadas e um sumário para a varável target a partir de um dataset.
+
+    Parameters
+    ----------
+    dataset: pd.DataFrame
+        Uma tabela contendo colunas com variáveis e uma variável alvo target.
+    target: str
+        Nome da coluna que representa a variável resposta.
+    figures_path: str
+        Caminho onde serão salvos os gráficos gerados.
+    reports_path: str
+        Caminho onde será salvo o CSV com o sumário.
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame contendo o sumário das distribuições percentuais.
+    '''
+
+    # Verificação de parâmetros
+    if not isinstance(dataset, pd.DataFrame):
+        raise TypeError('O dataset deve ser do tipo pd.DataFrame')
+    if not isinstance(target, str):
+        raise TypeError('O target deve ser do tipo str')
+    if not isinstance(figures_path, str):
+        raise TypeError('O figures_path deve ser do tipo str')
+    if not isinstance(reports_path, str):
+        raise TypeError('O reports_path deve ser do tipo str')
+
     dataset.drop_duplicates(inplace=True)
     discrete_columns = [col for col in dataset.columns if
                         dataset[col].nunique() <= 10 and dataset[col].dtype in ['int64', 'float64']]
