@@ -5,7 +5,7 @@ import seaborn as sns
 
 
 def analise_bivariada(dataset, target, figures_path, reports_path):
-    '''
+    """
     Gera análises bivariadas e um sumário para a varável target a partir de um dataset.
 
     Parameters
@@ -23,7 +23,7 @@ def analise_bivariada(dataset, target, figures_path, reports_path):
     -------
     pd.DataFrame
         DataFrame contendo o sumário das distribuições percentuais.
-    '''
+    """
 
     # Verificação de parâmetros
     if not isinstance(dataset, pd.DataFrame):
@@ -50,7 +50,7 @@ def analise_bivariada(dataset, target, figures_path, reports_path):
             plt.figure(figsize=(10, 6))
 
             if coluna in discrete_columns and target in discrete_columns:
-                # Adicionando ao sumário as porcentagens
+                # Adicionando ao sumário as porcentagens_
                 prop_df = dataset.groupby(coluna)[target].value_counts(normalize=True).unstack()
                 prop_df = prop_df * 100  # Converte para porcentagem
 
