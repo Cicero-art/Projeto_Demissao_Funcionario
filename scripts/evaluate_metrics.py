@@ -3,7 +3,7 @@ from typing import Dict
 from sklearn.metrics import roc_auc_score, precision_score, recall_score, accuracy_score
 
 
-def evaluate_model(predictions: np.ndarray, y_true: np.ndarray) -> Dict[str, float]:
+def evaluate_model(predictions: np.ndarray, y_true: np.ndarray, y_pred_proba: np.ndarray) -> Dict[str, float]:
     """
      Evaluates the performance of a model using various metrics.
 
@@ -16,7 +16,7 @@ def evaluate_model(predictions: np.ndarray, y_true: np.ndarray) -> Dict[str, flo
     """
     metrics = {
         'accuracy': accuracy_score(y_true, predictions),
-        'roc_auc': roc_auc_score(y_true, predictions),
+        'roc_auc': roc_auc_score(y_true, y_pred_proba),
         'precision': precision_score(y_true, predictions),
         "recall": recall_score(y_true, predictions)
     }
