@@ -10,6 +10,7 @@ def evaluate_model(predictions: np.ndarray, y_true: np.ndarray, y_pred_proba: np
      Parameters:
      - predictions: numpy array of model predictions
      - y_true: numpy array of true target values
+     - y_pred_proba: numpy array of predicted probabilities for the positive class (1)
 
      Returns:
      - A dictionary containing the accuracy, ROC AUC, precision, and recall
