@@ -22,3 +22,4 @@ def evaluate_model(predictions: np.ndarray, y_true: np.ndarray, y_pred_proba: np
         "recall": recall_score(y_true, predictions)
     }
     return metrics
+
