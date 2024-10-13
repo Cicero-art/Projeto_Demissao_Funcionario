@@ -3,9 +3,11 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, roc_auc_score
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
 from sklearn.preprocessing import LabelEncoder
 from evaluate_metrics import evaluate_model
+
+
 
 # Load data
 file_path = Path(__file__).parent.parent / "data" / "HR_comma_sep.csv"
@@ -47,7 +49,12 @@ print(f"ROC AUC: {metrics_manual['roc_auc']:.2f}")
 print(f"Precision: {metrics_manual['precision']:.2f}")
 print(f"Recall: {metrics_manual['recall']:.2f}")
 
-# Plot the ROC curve
+# Perform 5-fold cross-validation
+skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+scores = cross_val_score(model, X, y, cv=skf, scoring='accuracy')
+print(f"Cross-validated accuracy: {scores.mean():.2f} (+/- {scores.std():.2f})")
+
+"""# Plot the ROC curve
 fpr, tpr, _ = roc_curve(y_test, y_pred_proba)
 roc_auc = roc_auc_score(y_test, y_pred_proba)
 
@@ -60,4 +67,4 @@ plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.title('ROC Curve')
 plt.legend(loc="lower right")
-plt.show()
+plt.show()"""
