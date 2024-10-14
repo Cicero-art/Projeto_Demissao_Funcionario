@@ -25,7 +25,7 @@ def evaluate_model(predictions: np.ndarray, y_true: np.ndarray, y_pred_proba: np
     return metrics
 
 def plot_roc_curve(y_test, y_pred_proba):
-    """Plot ROC curve."""
+    #  plot ROC curve
     fpr, tpr, _ = roc_curve(y_test, y_pred_proba)
     roc_auc = roc_auc_score(y_test, y_pred_proba)
 
@@ -41,7 +41,8 @@ def plot_roc_curve(y_test, y_pred_proba):
     plt.show()
 
 def calculate_high_risk_employees(y_pred_proba, threshold: float):
-    """Calculate percentage of employees at high risk based on threshold."""
+    #  Calculate percentage of employees at high risk based on threshold
     count_high_risk = sum(y_pred_proba >= threshold)
     percentage_high_risk = (count_high_risk / len(y_pred_proba)) * 100
     return count_high_risk, percentage_high_risk
+
